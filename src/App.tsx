@@ -1,9 +1,14 @@
+import { Counter } from "./bases/Counter";
+import { CounterBy } from "./bases/CouterBy";
+
+
 function App() {
   return (
     <>
-      <h1>React</h1>
+      <Counter initialValue={ 15 }/>
+      <CounterBy/>
     </>
-  );
+  );  
 }
 
 export default App;
