@@ -4,19 +4,22 @@ interface Props {
   initialValue?: number
 }
 
+interface CounterState {
+  counter:number;
+  clicks:number;
+}
+
 export const CounterBy = ({initialValue = 10}:Props) => {
 
-  const [sum, setCounter] = useState({
+  const [{counter, clicks}, setCounter] = useState<CounterState>({
     counter: initialValue,
     clicks: 0
   })
-
-  const {counter, clicks} = sum;
   
   const handleClick = (value:number) => {
-    setCounter(prev => ({
-      counter: prev.counter+value,
-      clicks: prev.clicks+1
+    setCounter(({counter, clicks}) => ({
+      counter: counter+value,
+      clicks: clicks+1
     }))
   }
 
